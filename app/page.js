@@ -20,6 +20,10 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  }, [isDarkMode]);
+
+  useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
       localStorage.theme = "dark";
@@ -64,8 +68,8 @@ const Home = () => {
           />
         </div>
         <div className="mx-[10%]">
-          <div className="w-full text-[#1f1e1e] lg:mt-[15%] h-[100%] mt-[5%]">
-            <div className="hero-text w-full lg:max-w-[80%] mb-12 ">
+          <div className="w-full text-[#1f1e1e]  h-screen flex flex-col justify-center ">
+            <div className="w-full lg:max-w-[80%] mb-4 ">
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -85,7 +89,7 @@ const Home = () => {
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-[2rem] font-bold leading-[1.3] sm:text-[2.9rem] lg:font-semibold dark:text-[#ededed]"
+                className="text-[1.7rem] font-bold leading-[1.3] sm:text-[2.9rem] lg:font-semibold dark:text-[#ededed]"
               >
                 Frontend Web{" "}
                 <Typewriter words={["Developer", "Designer", "Engineer"]} />

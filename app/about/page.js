@@ -13,7 +13,7 @@ const About = ({ isDarkMode }) => {
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-[2rem] font-bold leading-[1.3] sm:text-[2rem] lg:font-semibold mb-8 dark:text-[#ededed]"
+          className="text-xl font-bold leading-[1.3] sm:text-[2rem] lg:font-semibold mb-8 dark:text-[#ededed]"
         >
           I am Victor Ejieme. I live in Lagos, Nigeria, and I love to code!
         </motion.h1>
@@ -24,7 +24,6 @@ const About = ({ isDarkMode }) => {
             "I have pursued training in web development, gaining a solid foundation in HTML, CSS, and JavaScript. I use React.js as my main language for building (actually because I find it interesting). However, I am willing and eager to learn more languages that would be useful in my very long and successful career ahead.",
             "I'm excited to apply my skills, collaborate with like-minded developers, and continue growing in this ever-evolving field. I'm also undergoing training to be a full-stack developer. So whatever you need—just let me know. Let's build something together!",
           ].map((text, index) => (
-            <div>
               <motion.p
                 key={index}
                 initial={{ opacity: 0 }}
@@ -34,7 +33,6 @@ const About = ({ isDarkMode }) => {
               >
                 {text}
               </motion.p>
-            </div>
           ))}
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -60,11 +58,12 @@ const About = ({ isDarkMode }) => {
           initial={{ y: -30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex justify-center"
         >
           <Image
             src="/Chukwuebuka.jpeg"
             alt="Chukwuebuka Ejieme"
-            className="w-[45%] lg:w-[95%] aspect-square ml-2 rounded-[20px]"
+            className="w-[75%] lg:w-[95%] aspect-square ml-2 rounded-[20px]"
             width={400}
             height={400}
           />

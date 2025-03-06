@@ -28,8 +28,8 @@ const Footer = ({ isDarkMode }) => {
   ];
 
   return (
-    <div className="flex lg:flex-row sm:flex-col md:flex-row justify-between items-center mt-[15%] mb-[5%] text-[12px] lg:text-[14px] text-[#444343]">
-      <div className="flex gap-8">
+    <div className="flex lg:flex-row flex-col md:flex-row gap-3 justify-between items-center mt-[15%] mb-[5%] text-[12px] lg:text-[14px] text-[#444343]">
+      <div className="flex gap-3 lg:gap-8">
         {socialLinks.map((link, index) => (
           <a
             key={index}

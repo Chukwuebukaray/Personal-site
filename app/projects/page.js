@@ -83,7 +83,7 @@ const Projects = () => {
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-[2rem] text-[#1f1e1e] font-bold leading-[1.3] sm:text-[2.9rem] lg:font-semibold dark:text-[#e2e1e1]"
+          className="text-xl text-[#1f1e1e] font-bold leading-[1.3] lg:text-[2.9rem] lg:font-semibold dark:text-[#e2e1e1]"
         >
           Some projects I've worked on.
         </motion.h1>

@@ -1,101 +1,143 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import Image from "next/image";
+import Footer from "./Footer";
+import Contact from "./contact/page";
+import About from "./about/page";
+import Projects from "./projects/page";
+import Typewriter from "./Typewriter";
 
-export default function Home() {
+const Home = () => {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setIsDarkMode(storedTheme === "dark");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "";
+    }
+  }, [isDarkMode]);
+
+  const socialLinks = [
+    {
+      src: isDarkMode ? "/x-dark.png" : "/x-light.png",
+      url: "https://x.com/ebukaejieme",
+    },
+    {
+      src: isDarkMode ? "/instagram-dark.png" : "/instagram-light.png",
+      url: "https://instagram.com/ebukaejieme",
+    },
+    {
+      src: isDarkMode ? "/github-mark-dark.png" : "/github-mark-light.png",
+      url: "https://github.com/chukwuebukaray",
+    },
+    {
+      src: isDarkMode ? "/linkedin-dark.png" : "/linkedin-light.png",
+      url: "https://linkedin.com/in/victor-ejieme",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <div className="bg-[#eee] mx-0 lg:mx-[5%] md:mx-[5%] border-[1px] border-x-[#e2e1e1] dark:bg-[#131313] dark:border-[#383544]">
+        <div
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="fixed top-[5%] right-[18%] border-2 border-[#e2e1e1] rounded-full p-2 bg-[#ededed] z-10"
+        >
+          <Image
+            src={isDarkMode ? "/darkmode.png" : "/lightmode.png"}
+            width={20}
+            height={20}
+            title="Dark mode"
+            alt=""
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="mx-[10%]">
+          <div className="w-full text-[#1f1e1e] lg:mt-[15%] h-[100%] mt-[5%]">
+            <div className="hero-text w-full lg:max-w-[80%] mb-12 ">
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, type: "spring", stiffness: "50" }}
+                className="w-fit"
+              >
+                <Image
+                  src="/Chukwuebukamug.jpg"
+                  className="rounded-full aspect-square w-32 mb-[20px] sticky"
+                  alt="Chukwuebuka"
+                  width={128}
+                  height={128}
+                  priority
+                />
+              </motion.div>
+              <motion.h1
+                initial={{ y: -20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-[2rem] font-bold leading-[1.3] sm:text-[2.9rem] lg:font-semibold dark:text-[#ededed]"
+              >
+                Frontend Web{" "}
+                <Typewriter words={["Developer", "Designer", "Engineer"]} />
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="leading-[1.8] my-[20px] text-[15px] text-[#444343] font-light lg:text-[1rem] lg:font-normal dark:text-[#bbb]"
+              >
+                I'm a developer who loves turning ideas into visually stunning
+                code. Challenges don't scare me—they drive me. I strongly believe every project is
+                an opportunity to learn, grow, and push my skills further.
+              </motion.p>
+            </div>
+            <motion.div className="flex gap-8 mt-7">
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-row gap-5 items-center dark:text-[#bbb]"
+                >
+                  <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                    className="flex flex-row gap-5 items-center dark:text-[#bbb]"
+                  >
+                    <Image
+                      src={link.src}
+                      className="w-[20px] cursor-pointer"
+                      alt=""
+                      width={24}
+                      height={24}
+                    />
+                  </motion.div>
+                </a>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+        <div className="mx-[5%]">
+          <About isDarkMode={isDarkMode} />
+          <Projects />
+          <Contact isDarkMode={isDarkMode} />
+          <Footer isDarkMode={isDarkMode} />
+        </div>
+      </div>
+    </>
   );
-}
+};
+
+export default Home;

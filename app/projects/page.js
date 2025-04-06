@@ -20,6 +20,20 @@ const projects = [
     screenshot: "/screenshots/alphatwelve.png",
   },
   {
+    name: "Netflix Clone",
+    description:
+      "A frontend clone of the popular streaming website, Netflix that uses TMDB api to fetch movie details, following a GreatStack tutorial.",
+    link: "https://netfliixx-clone.netlify.app",
+    screenshot: "/screenshots/netflixclone.png",
+  },
+  {
+    name: "Weather App",
+    description:
+      "A dynamic weather app that fetches up to 7 days of forecast for any city, with immersive background images that reflect current or upcoming weather conditions, using Openweather and Unsplash API",
+    link: "https://weatherced.netlify.app",
+    screenshot: "/screenshots/weather-app.png",
+  },
+  {
     name: "Task Flow",
     description:
       "A frontend-focused Figma-to-code project that improved my CSS skills and experience working under deadlines.",
@@ -39,20 +53,6 @@ const projects = [
       "An internship challenge project featuring a static user list with a shuffle function and smooth animations.",
     link: "https://shuffletest.netlify.app",
     screenshot: "/screenshots/userslist.png",
-  },
-  {
-    name: "Netflix Clone",
-    description:
-      "A frontend clone of the popular streaming website, Netflix that uses TMDB api to fetch movie details, following a GreatStack tutorial.",
-    link: "https://netfliixx-clone.netlify.app",
-    screenshot: "/screenshots/netflixclone.png",
-  },
-  {
-    name: "Weather App",
-    description:
-      "A dynamic weather app that fetches up to 7 days of forecast for any city, with immersive background images that reflect current or upcoming weather conditions, using Openweather and Unsplash API",
-    link: "https://weatherced.netlify.app",
-    screenshot: "/screenshots/weather-app.png",
   },
 ];
 

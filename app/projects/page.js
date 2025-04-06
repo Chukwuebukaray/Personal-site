@@ -22,7 +22,7 @@ const projects = [
   {
     name: "Netflix Clone",
     description:
-      "A frontend clone of the popular streaming website, Netflix that uses TMDB api to fetch movie details, following a GreatStack tutorial.",
+      "A frontend clone of the popular streaming website, Netflix that uses TMDB API to fetch movie details, following a GreatStack tutorial.",
     link: "https://netfliixx-clone.netlify.app",
     screenshot: "/screenshots/netflixclone.png",
   },

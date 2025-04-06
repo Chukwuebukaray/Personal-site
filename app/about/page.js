@@ -29,7 +29,7 @@ const About = ({ isDarkMode }) => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-[#444343] leading-7 font-extralight mb-4 text-sm dark:text-[#bbb]"
+                className="text-[#444343] leading-7 mb-4 text-sm dark:text-[#bbb]"
               >
                 {text}
               </motion.p>
